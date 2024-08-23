@@ -11,5 +11,7 @@ namespace MVC_Addtocartdummy.Data
         }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Product> ProductsTable { get; set; }
+        public DbSet<Cart> Cart { get; set; }
     }
 }

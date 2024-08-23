@@ -1,5 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model List<Product>
+
+<form method="get" asp-controller="Dashboard" asp-action="Index">
+    <select name="choice" onchange="this.form.submit()">
+        <option value="All" selected="selected">All</option>
+        <option value="LTH">Lowest to Highest</option>
+    </select>
+</form>
+
+
+@foreach (var x in Model)
+{
+
+    <div class="d-flex">
+        <div class="card" style="width: 18rem;">
+            <img src="@x.Picture" class="card-img-top" width="200" height="200" alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">@x.Pname</h5>
+                <p class="card-text">@x.Pcat</p>
+                <p class="card-text">@x.Price</p>
+            </div>
+
+            <div class="card-body">
+                <a class="btn btn-info" asp-controller="Dashboard" asp-route-id="@x.Pid" asp-action="AddToCart">Add To Cart</a>
+
+            </div>
+        </div>
+    </div>
 }
